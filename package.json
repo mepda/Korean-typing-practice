@@ -1,0 +1,19 @@
+{
+  "name": "sentences-korean",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "fs": "0.0.1-security",
+    "hbs": "^4.0.1",
+    "lodash": "^4.17.4",
+    "nodemon": "^1.14.1"
+  }
+}

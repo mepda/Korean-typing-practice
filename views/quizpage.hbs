@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Type the word with haste and gusto!</h1>
+    <h3>{{word}}</h3>
+    <!-- <form class="" action="index.html" method="post">
+
+    </form> -->
+    <form class="" method="post" action="/">
+      <input type="text" id="answer" name="ans" value="">
+      <button onclick="passbackword()">OK</button>
+    </form>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+
+      function passbackword()
+      {
+        let reply = r$("#answer").val()
+        $.post("/", {answer: ans })
+      }
+    </script>
+  </body>
+</html>
