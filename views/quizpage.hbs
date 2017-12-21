@@ -4,16 +4,19 @@
     <meta charset="utf-8">
     <title></title>
   </head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   <body>
-    <h1>Type the word with haste and gusto!</h1>
-    <h3>{{word}}</h3>
-    <!-- <form class="" action="index.html" method="post">
+    <div class="container-fluid text-center">
+      <h1 style="margin:30px;" >한국어 탁자 시홈</h1>
+      <h3 style="font-size: 20vw;">{{word}}</h3>
+      <!-- <form class="" action="index.html" method="post">
 
-    </form> -->
-    <form class="" method="post" action="/">
-      <input type="text" id="answer" name="ans" value="">
-      <button onclick="passbackword()">OK</button>
-    </form>
+      </form> -->
+      <form style="margin:50px;" class="form-group" method="post" action="/">
+        <input class="form form-control-large" type="text" id="answer" name="ans" value="">
+        <button class="btn btn-danger-outline"onclick="passbackword()">OK</button>
+      </form>
+    </div>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
