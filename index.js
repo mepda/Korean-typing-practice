@@ -55,6 +55,4 @@ app.post('/', (req, res)=>{
 })
 
 
-var server = app.listen(3000, function () {
-  console.log('Server running at http://localhost:' + server.address().port)
-})
+var server = app.listen(process.env.PORT || 5000)
