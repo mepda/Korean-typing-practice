@@ -7,13 +7,8 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 const app = express()
 
-let korean_words = []
 let data = JSON.parse(fs.readFileSync('data.json'))
 let korean_choice = _.sample(data.words).Korean
-// console.log(korean_choice.Korean);
-
-// let words = ["hi", "sup", "how's it going"]
-// let choice = _.sample(words)
 
 function choose_a_new_word()
 {
@@ -55,4 +50,4 @@ app.post('/', (req, res)=>{
 })
 
 
-var server = app.listen(process.env.PORT || 5000)
+var server = app.listen(process.env.PORT || 3000)
