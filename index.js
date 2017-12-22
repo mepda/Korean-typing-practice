@@ -43,6 +43,7 @@ app.post('/', (req, res)=>{
   console.log("post request");
   console.log(req.body);
   let uw = req.body.ans
+  //dwm means do words match
   let dwm = do_words_match(korean_choice.Korean, uw);
   choose_a_new_word();
   // console.log(dwm);

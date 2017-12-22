@@ -15,24 +15,25 @@
 
       </form> -->
       <form style="margin:50px;" class="form-group" method="post" action="/">
-        <input onkeydown="typingCounter" autofocus class="form form-control-large" type="text" id="answer" name="ans" value="">
+        <input onkeydown="typingCounter()" autofocus class="form form-control-large" type="text" id="answer" name="ans" value="">
+        <p id="keystrokes" name="" value=""></p>
         <button class="btn btn-danger-outline" onclick="passbackword()">OK</button>
       </form>
     </div>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
-      //count how many strokes it took the user to type the word
       let keystrokes = 0;
       function typingCounter()
       {
         keystrokes++;
+        document.getElementById('keystrokes').innerHTML = keystrokes;
       }
       //I know this doens't sound secure, but it's just passing the word back to the server
       function passbackword()
       {
-        // let reply = $("#answer").val()
-        $.post("/", {answer: ans, stroke:keystrokes })
+        let reply = $("#answer").val()
+        $.post("/", {answer: ans})
       }
     </script>
   </body>
