@@ -7,24 +7,32 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   <body>
     <div class="container-fluid text-center">
-      <h1 style="margin:30px;" >한국어 타자하기 시험</h1>
-      <h3 style="font-size: 20vw;">{{word}}</h3>
+      <h1 style="margin:30px;">한국어 타자 시험</h1>
+      <!-- <p>Korean Typing Practice</p> -->
+      <h3 style="font-size: 20vw;">{{word.Korean}}</h3>
+      <h3 style="font-size: 5vw;">{{word.English}}</h3>
       <!-- <form class="" action="index.html" method="post">
 
       </form> -->
       <form style="margin:50px;" class="form-group" method="post" action="/">
-        <input autofocus class="form form-control-large" type="text" id="answer" name="ans" value="">
-        <button class="btn btn-danger-outline"onclick="passbackword()">OK</button>
+        <input onkeydown="typingCounter" autofocus class="form form-control-large" type="text" id="answer" name="ans" value="">
+        <button class="btn btn-danger-outline" onclick="passbackword()">OK</button>
       </form>
     </div>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
-
+      //count how many strokes it took the user to type the word
+      let keystrokes = 0;
+      function typingCounter()
+      {
+        keystrokes++;
+      }
+      //I know this doens't sound secure, but it's just passing the word back to the server
       function passbackword()
       {
-        let reply = r$("#answer").val()
-        $.post("/", {answer: ans })
+        // let reply = $("#answer").val()
+        $.post("/", {answer: ans, stroke:keystrokes })
       }
     </script>
   </body>
