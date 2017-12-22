@@ -39,16 +39,17 @@ app.get('/', (req, res)=>{
   res.render('quizpage', {word: word})
 })
 
-app.post('/', (req, res)=>{
+app.post('/', (req, res, next)=>{
   console.log("post request");
-  console.log(req.body);
-  let uw = req.body.ans
+  console.log(req.body.message[0]);
+  let uw = req.body.message[0]
   //dwm means do words match
   let dwm = do_words_match(korean_choice.Korean, uw);
   choose_a_new_word();
-  // console.log(dwm);
-
+  console.log(dwm);
+  
   res.render('anscheck', {dwm, dwm})
+  console.log('shouldnot reach here');
 })
 
 

@@ -11,10 +11,10 @@
       <!-- <p>Korean Typing Practice</p> -->
       <h3 style="font-size: 20vw;">{{word.Korean}}</h3>
       <h3 style="font-size: 5vw;">{{word.English}}</h3>
-      <!-- <form class="" action="index.html" method="post">
-
-      </form> -->
-      <form style="margin:50px;" class="form-group" method="post" action="/">
+      <!-- taken out
+        method="post" action="/"
+      -->
+      <form style="margin:50px;" class="form-group" >
         <input onkeydown="typingCounter()" autofocus class="form form-control-large" type="text" id="answer" name="ans" value="">
         <p id="keystrokes" name="" value=""></p>
         <button class="btn btn-danger-outline" onclick="passbackword()">OK</button>
@@ -32,8 +32,20 @@
       //I know this doens't sound secure, but it's just passing the word back to the server
       function passbackword()
       {
+        let data = []
         let reply = $("#answer").val()
-        $.post("/", {answer: ans})
+        let keycount = $("#keystrokes").text()
+        data.push(reply)
+        data.push(keycount)
+        console.log(data);
+        $.ajax({
+          method: 'POST',
+          url: "/",
+          data: {message : data},
+          success: function(){
+            console.log("success verbose ajax POST");
+          }
+        })
       }
     </script>
   </body>
