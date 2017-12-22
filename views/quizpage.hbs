@@ -11,11 +11,11 @@
       <!-- <p>Korean Typing Practice</p> -->
       <h3 style="font-size: 20vw;">{{word.Korean}}</h3>
       <h3 style="font-size: 5vw;">{{word.English}}</h3>
-      <!-- <form class="" action="index.html" method="post">
-
-      </form> -->
+      <!--
+      From input~ onkeydown="typingCounter()"
+      -->
       <form style="margin:50px;" class="form-group" method="post" action="/">
-        <input onkeydown="typingCounter()" autofocus class="form form-control-large" type="text" id="answer" name="ans" value="">
+        <input  autofocus class="form form-control-large" type="text" id="answer" name="ans" value="">
         <p id="keystrokes" name="" value=""></p>
         <button class="btn btn-danger-outline" onclick="passbackword()">OK</button>
       </form>
