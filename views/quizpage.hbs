@@ -8,9 +8,10 @@
   <body>
     <div class="container-fluid text-center">
       <h1 style="margin:30px;">한국어 타자 시험</h1>
-      <!-- <p>Korean Typing Practice</p> -->
+
       <h3 style="font-size: 20vw;">{{word.Korean}}</h3>
       <h3 style="font-size: 5vw;">{{word.English}}</h3>
+<<<<<<< HEAD
       <!--
       <input type="text" onkeydown="myFunction(event)">
 
@@ -25,24 +26,49 @@
       -->
       <form style="margin:50px;" class="form-group" method="post" action="/">
         <input  autofocus class="form form-control-large" type="text" id="answer" name="ans" value="">
+=======
+
+      <div style="margin:50px;" class="form-group" id="ans-form" >
+        <input onkeydown="typingCounter()" autofocus class="form form-control-large" type="text" id="answer" name="ans" value="">
+>>>>>>> ajax-fix
         <p id="keystrokes" name="" value=""></p>
         <button class="btn btn-danger-outline" onclick="passbackword()">OK</button>
-      </form>
+      </div>
     </div>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
-      let keystrokes = 0;
+    let keystrokes = 0;
+
       function typingCounter()
       {
+        let charCode = event.keyCode
+        console.log(charCode)
+        if(charCode == 13){ passbackword() }
+        if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || charCode == 8 || charCode == 229){
+        console.log(event.keyCode);
         keystrokes++;
+        }
         document.getElementById('keystrokes').innerHTML = keystrokes;
       }
       //I know this doens't sound secure, but it's just passing the word back to the server
       function passbackword()
       {
+        let data = []
         let reply = $("#answer").val()
-        $.post("/", {answer: ans})
+        let keycount = $("#keystrokes").text()
+        data.push(reply)
+        data.push(keycount)
+        console.log(data);
+        $.ajax({
+          method: 'POST',
+          url: "/",
+          data: {message : data},
+          success: function(){
+            console.log("success verbose ajax POST");
+            location = "anscheck"
+          }
+        })
       }
     </script>
   </body>
