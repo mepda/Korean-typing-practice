@@ -1,15 +1,17 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const fs = require('fs')
-var _ = require('lodash')
-
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
-/*TODO should probably rename some stuff, like "keyshit" could be taken to mean
+/*TODO should probably rename some stuff, like "keys_hit" could be taken to mean
 something offensive instead of just, well, keys hit.
 
 Make app more modular by having ability to load different files when some other
 path is chosen.
 */
+
+const express = require('express')
+const bodyParser = require('body-parser')
+const fs = require('fs')
+var _ = require('lodash')
+
+let urlencodedParser = bodyParser.urlencoded({ extended: false })
+
 const app = express()
 
 app.use(express.static('public'))
@@ -30,19 +32,19 @@ function choose_a_new_word()
   korean_choice = _.sample(data.words)
 }
 
-function do_words_match (givenword, usersword, keyshit)
+function do_words_match (givenword, usersword, keys_hit)
 {
 
   if (givenword == usersword)
   {
     get_picture(1, 5)
     //pof means "pass or fail"
-    return {picture: picture, keyshit: keyshit, useranswer: usersword, chosenword: givenword, pof:"Good show!!", back:"back?", correct: true}
+    return {picture: picture, keys_hit: keys_hit, useranswer: usersword, chosenword: givenword, pof:"Good show!!", back:"back?", correct: true}
   }
   else
   {
     get_picture(6, 10)
-    return {picture: picture, keyshit:keyshit, useranswer: usersword, chosenword: givenword, pof: "Almost! Keep your eyes on the prize!", back:"try again?", correct: false}
+    return {picture: picture, keys_hit:keys_hit, useranswer: usersword, chosenword: givenword, pof: "Almost! Keep your eyes on the prize!", back:"try again?", correct: false}
   }
 }
 
@@ -60,9 +62,9 @@ app.get('/', (req, res)=>{
 
 app.post('/', (req, res, next)=>{
   let uw = req.body.message[0]
-  let keyshit = req.body.message[1]
+  let keys_hit = req.body.message[1]
   //dwm means do words match, uw means userword
-  dwm = do_words_match(korean_choice.Korean, uw, keyshit);
+  dwm = do_words_match(korean_choice.Korean, uw, keys_hit);
   choose_a_new_word();
   console.log(dwm.correct);
   console.log(dwm);
