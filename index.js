@@ -8,12 +8,22 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 something offensive instead of just, well, keys hit.
 
 Make app more modular by having ability to load different files when some other
-path is chosen. 
+path is chosen.
 */
 const app = express()
+
+app.use(express.static('public'))
+
+
+let picture = ""
 let dwm = {}
 let data = JSON.parse(fs.readFileSync('data.json'))
 let korean_choice = _.sample(data.words)
+
+function get_picture(start, end)
+{
+  picture = _.random(start, end)
+}
 
 function choose_a_new_word()
 {
@@ -22,14 +32,17 @@ function choose_a_new_word()
 
 function do_words_match (givenword, usersword, keyshit)
 {
+
   if (givenword == usersword)
   {
+    get_picture(1, 5)
     //pof means "pass or fail"
-    return {keyshit: keyshit, useranswer: usersword, chosenword: givenword, pof:"Good show!!", back:"back?", correct: true}
+    return {picture: picture, keyshit: keyshit, useranswer: usersword, chosenword: givenword, pof:"Good show!!", back:"back?", correct: true}
   }
   else
   {
-    return {keyshit:keyshit, useranswer: usersword, chosenword: givenword, pof: "Almost! Keep your eyes on the prize!", back:"try again?", correct: false}
+    get_picture(6, 10)
+    return {picture: picture, keyshit:keyshit, useranswer: usersword, chosenword: givenword, pof: "Almost! Keep your eyes on the prize!", back:"try again?", correct: false}
   }
 }
 
@@ -52,6 +65,7 @@ app.post('/', (req, res, next)=>{
   dwm = do_words_match(korean_choice.Korean, uw, keyshit);
   choose_a_new_word();
   console.log(dwm.correct);
+  console.log(dwm);
 res.render('anscheck', {dwm: dwm})
 })
 

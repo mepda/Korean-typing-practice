@@ -9,15 +9,16 @@
     <div class="container-fluid text-center">
       <div>
         {{#if dwm.correct}}
-        <h1>Nice!!!</h1>
+        <!-- <h1>Nice!!!</h1> -->
         <h3><div style="color:blue; display:inline-block;">{{dwm.useranswer}}</div> definitely equals {{dwm.chosenword}}</h3>
+
         {{else}}
         <h3>Oops! Your answer of<div style="color:red; display:inline-block;">{{dwm.useranswer}}</div> isn't quite {{dwm.chosenword}}</h3>
         {{/if}}
         <h4>It took your {{dwm.keyshit}} strokes to type that.</h4>
-
+        <img width="200vh" src="{{dwm.picture}}.gif" alt="">
       </div>
-      <h1 style="font-size:10vw; padding: 30px;">{{dwm.pof}}</h1>
+      <h1 style="font-size:6vw; padding: 30px;">{{dwm.pof}}</h1>
       <a href="/">
         <button type="button" autofocus class="btn btn-outline-primary" >
           {{dwm.back}}
