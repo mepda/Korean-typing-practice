@@ -4,7 +4,12 @@ const fs = require('fs')
 var _ = require('lodash')
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
+/*TODO should probably rename some stuff, like "keyshit" could be taken to mean
+something offensive instead of just, well, keys hit.
 
+Make app more modular by having ability to load different files when some other
+path is chosen. 
+*/
 const app = express()
 let dwm = {}
 let data = JSON.parse(fs.readFileSync('data.json'))
@@ -41,16 +46,11 @@ app.get('/', (req, res)=>{
 })
 
 app.post('/', (req, res, next)=>{
-  // console.log("post request");
-  // console.log(req.body.message[0]);
   let uw = req.body.message[0]
   let keyshit = req.body.message[1]
-  // console.log("keys hit", keyshit);
-  // console.log("body", req.body);
   //dwm means do words match, uw means userword
   dwm = do_words_match(korean_choice.Korean, uw, keyshit);
   choose_a_new_word();
-  // console.log(dwm);
   console.log(dwm.correct);
 res.render('anscheck', {dwm: dwm})
 })

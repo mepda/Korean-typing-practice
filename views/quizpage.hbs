@@ -8,12 +8,10 @@
   <body>
     <div class="container-fluid text-center">
       <h1 style="margin:30px;">한국어 타자 시험</h1>
-      <!-- <p>Korean Typing Practice</p> -->
+
       <h3 style="font-size: 20vw;">{{word.Korean}}</h3>
       <h3 style="font-size: 5vw;">{{word.English}}</h3>
-      <!-- taken out
-        method="post" action="/"
-      -->
+
       <div style="margin:50px;" class="form-group" id="ans-form" >
         <input onkeydown="typingCounter()" autofocus class="form form-control-large" type="text" id="answer" name="ans" value="">
         <p id="keystrokes" name="" value=""></p>
@@ -24,17 +22,6 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
     let keystrokes = 0;
-    // function lettersOnly()
-    // {
-    //       var charCode = event.keyCode;
-    //
-    //       if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || charCode == 8){
-    //
-    //       }
-    //           return true;
-    //       else
-    //           return false;
-    //   }
 
       function typingCounter()
       {
