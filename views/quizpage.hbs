@@ -14,19 +14,37 @@
       <!-- taken out
         method="post" action="/"
       -->
-      <form style="margin:50px;" class="form-group" >
+      <div style="margin:50px;" class="form-group" id="ans-form" >
         <input onkeydown="typingCounter()" autofocus class="form form-control-large" type="text" id="answer" name="ans" value="">
         <p id="keystrokes" name="" value=""></p>
         <button class="btn btn-danger-outline" onclick="passbackword()">OK</button>
-      </form>
+      </div>
     </div>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
-      let keystrokes = 0;
+    let keystrokes = 0;
+    // function lettersOnly()
+    // {
+    //       var charCode = event.keyCode;
+    //
+    //       if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || charCode == 8){
+    //
+    //       }
+    //           return true;
+    //       else
+    //           return false;
+    //   }
+
       function typingCounter()
       {
+        let charCode = event.keyCode
+        console.log(charCode)
+        if(charCode == 13){ passbackword() }
+        if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || charCode == 8 || charCode == 229){
+        console.log(event.keyCode);
         keystrokes++;
+        }
         document.getElementById('keystrokes').innerHTML = keystrokes;
       }
       //I know this doens't sound secure, but it's just passing the word back to the server
@@ -44,6 +62,7 @@
           data: {message : data},
           success: function(){
             console.log("success verbose ajax POST");
+            location = "anscheck"
           }
         })
       }
