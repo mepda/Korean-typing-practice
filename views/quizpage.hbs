@@ -11,7 +11,7 @@
 
       <h3 style="font-size: 20vw;">{{word.Korean}}</h3>
       <h3 style="font-size: 5vw;">{{word.English}}</h3>
-      
+
       <div style="margin:50px;" class="form-group" id="ans-form" >
         <input onkeydown="typingCounter()" autofocus class="form form-control-large" type="text" id="answer" name="ans" value="">
         <p id="keystrokes" name="" value=""></p>
@@ -28,9 +28,9 @@
         let charCode = event.keyCode
         console.log(charCode)
         if(charCode == 13){ passbackword() }
-        if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || charCode == 8 || charCode == 229){
-        console.log(event.keyCode);
-        keystrokes++;
+        else if((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || charCode == 8 || charCode == 229){
+          console.log(event.keyCode);
+          keystrokes++;
         }
         document.getElementById('keystrokes').innerHTML = keystrokes;
       }
