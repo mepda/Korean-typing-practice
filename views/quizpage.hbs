@@ -11,26 +11,9 @@
 
       <h3 style="font-size: 20vw;">{{word.Korean}}</h3>
       <h3 style="font-size: 5vw;">{{word.English}}</h3>
-<<<<<<< HEAD
-      <!--
-      <input type="text" onkeydown="myFunction(event)">
-
-      function myFunction(event) {
-          var x = event.keyCode;
-          if (x == 27) {  // 27 is the ESC key
-              alert ("You pressed the Escape key!");
-          }
-      }
-
-      From input~ onkeydown="typingCounter()"
-      -->
-      <form style="margin:50px;" class="form-group" method="post" action="/">
-        <input  autofocus class="form form-control-large" type="text" id="answer" name="ans" value="">
-=======
-
+      
       <div style="margin:50px;" class="form-group" id="ans-form" >
         <input onkeydown="typingCounter()" autofocus class="form form-control-large" type="text" id="answer" name="ans" value="">
->>>>>>> ajax-fix
         <p id="keystrokes" name="" value=""></p>
         <button class="btn btn-danger-outline" onclick="passbackword()">OK</button>
       </div>
