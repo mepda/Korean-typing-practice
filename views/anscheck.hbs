@@ -4,26 +4,28 @@
     <meta charset="utf-8">
     <title></title>
     <style media="screen">
+    body{
 
+    }
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   </head>
   <body style="background-image: url('ansback2.jpg');"><br><br>
-    <div style='background-color:white;' class="container-fluid text-center">
+    <div style='background-color:cornsilk;' class="container-fluid text-center">
         {{#if answer_response_package.correct}}
-        <h1 style='background-color:white;'>Nice!!!</h1>
-          <h3 style='background-color:white;'>{{answer_response_package.useranswer}}
+        <h1 style='background-color:cornsilk;'>Nice!!!</h1>
+          <h3 style='background-color:cornsilk;'>{{answer_response_package.useranswer}}
             definitely equals {{answer_response_package.chosenword}}</h3>
         {{else}}
-        <h3 style='background-color:white;'>Oops! Your answer of
+        <h3 style='background-color:cornsilk;'>Oops! Your answer of
            <div style="color:red; display:inline-block;">{{answer_response_package.useranswer}}</div>
            isn't quite {{answer_response_package.chosenword}}</h3>
         {{/if}}
-        <h4 style='background-color:white;'>Looks like it took {{answer_response_package.keys_hit}}
+        <h4 style='background-color:cornsilk;'>Looks like it took {{answer_response_package.keys_hit}}
           strokes to type that.</h4>
 
       <img width="200vh" src="{{answer_response_package.picture}}.gif" alt="">
-      <h1 style="font-size:6vw; padding: 30px;background-color:white;">{{answer_response_package.pof}}</h1>
+      <h1 style="font-size:6vw; padding: 30px;background-color:cornsilk;">{{answer_response_package.pof}}</h1>
       <a href="/">
         <button type="button" autofocus class="btn btn-primary" >
           {{answer_response_package.back}}

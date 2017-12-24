@@ -1,7 +1,4 @@
-/*TODO should probably rename some stuff, like "keys_hit" could be taken to mean
-something offensive instead of just, well, keys hit.
-
-Make app more modular by having ability to load different files when some other
+/*TODO Make app more modular by having ability to load different files when some other
 path is chosen.
 */
 
@@ -15,7 +12,6 @@ let urlencodedParser = bodyParser.urlencoded({ extended: false })
 const app = express()
 
 app.use(express.static('public'))
-
 
 let picture = ""
 let answer_response_package = {}
@@ -55,7 +51,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 
 app.get('/', (req, res)=>{
-  dwm = {}
+  answer_response_package = {}
   let word = korean_choice
   res.render('quizpage', {word: word})
 })
@@ -64,10 +60,8 @@ app.post('/', (req, res, next)=>{
   let typed_word = req.body.message[0]
   let keys_hit = req.body.message[1]
   let given_word = req.body.message[2]
-  //dwm means do words match, uw means userword
   answer_response_package = make_response_package(given_word, typed_word, keys_hit);
   choose_a_new_word();
-  // console.log(dwm.correct);
   console.log(answer_response_package);
 res.render('anscheck', {answer_response_package: answer_response_package})
 })
