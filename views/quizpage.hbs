@@ -21,7 +21,7 @@
       </div>
       <div class="row">
         <h3 class="border border-dark rounded col-md-8 col-sm-8 col-lg-8 mx-auto"
-        style="font-size: 14vw;background-color:white;">{{word.Korean}}</h3>
+        style="font-size: 14vw;background-color:white;" id="Korean_word">{{word.Korean}}</h3>
         <h3 class="border border-dark rounded col-md-8 col-sm-8 col-lg-8 mx-auto"
         style="font-size: 5vw;background-color:white;">{{word.English}}</h3>
       </div>
@@ -58,11 +58,13 @@
       //I know this doens't sound secure, but it's just passing the word back to the server
       function passbackword()
       {
+        let Korean_word = $("#Korean_word").text()
         let data = []
         let reply = $("#answer").val()
         let keycount = $("#keystrokes").text()
         data.push(reply)
         data.push(keycount)
+        data.push(Korean_word)
         console.log(data);
         $.ajax({
           method: 'POST',

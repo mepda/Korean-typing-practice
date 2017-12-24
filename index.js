@@ -18,7 +18,7 @@ app.use(express.static('public'))
 
 
 let picture = ""
-let dwm = {}
+let answer_response_package = {}
 let data = JSON.parse(fs.readFileSync('data.json'))
 let korean_choice = _.sample(data.words)
 
@@ -32,7 +32,7 @@ function choose_a_new_word()
   korean_choice = _.sample(data.words)
 }
 
-function do_words_match (givenword, usersword, keys_hit)
+function make_response_package (givenword, usersword, keys_hit)
 {
 
   if (givenword == usersword)
@@ -61,18 +61,19 @@ app.get('/', (req, res)=>{
 })
 
 app.post('/', (req, res, next)=>{
-  let uw = req.body.message[0]
+  let typed_word = req.body.message[0]
   let keys_hit = req.body.message[1]
+  let given_word = req.body.message[2]
   //dwm means do words match, uw means userword
-  dwm = do_words_match(korean_choice.Korean, uw, keys_hit);
+  answer_response_package = make_response_package(given_word, typed_word, keys_hit);
   choose_a_new_word();
-  console.log(dwm.correct);
-  console.log(dwm);
-res.render('anscheck', {dwm: dwm})
+  // console.log(dwm.correct);
+  console.log(answer_response_package);
+res.render('anscheck', {answer_response_package: answer_response_package})
 })
 
 app.get('/anscheck', (req, res)=>{
-  res.render('anscheck', {dwm: dwm})
+  res.render('anscheck', {answer_response_package: answer_response_package})
 })
 
 var server = app.listen(process.env.PORT || 3000)

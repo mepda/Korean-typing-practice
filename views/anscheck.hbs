@@ -10,23 +10,23 @@
   </head>
   <body style="background-image: url('ansback2.jpg');"><br><br>
     <div style='background-color:white;' class="container-fluid text-center">
-        {{#if dwm.correct}}
+        {{#if answer_response_package.correct}}
         <h1 style='background-color:white;'>Nice!!!</h1>
-          <h3 style='background-color:white;'>{{dwm.useranswer}}
-            definitely equals {{dwm.chosenword}}</h3>
+          <h3 style='background-color:white;'>{{answer_response_package.useranswer}}
+            definitely equals {{answer_response_package.chosenword}}</h3>
         {{else}}
         <h3 style='background-color:white;'>Oops! Your answer of
-           <div style="color:red; display:inline-block;">{{dwm.useranswer}}</div>
-           isn't quite {{dwm.chosenword}}</h3>
+           <div style="color:red; display:inline-block;">{{answer_response_package.useranswer}}</div>
+           isn't quite {{answer_response_package.chosenword}}</h3>
         {{/if}}
-        <h4 style='background-color:white;'>Looks like it took {{dwm.keys_hit}}
+        <h4 style='background-color:white;'>Looks like it took {{answer_response_package.keys_hit}}
           strokes to type that.</h4>
 
-      <img width="200vh" src="{{dwm.picture}}.gif" alt="">
-      <h1 style="font-size:6vw; padding: 30px;background-color:white;">{{dwm.pof}}</h1>
+      <img width="200vh" src="{{answer_response_package.picture}}.gif" alt="">
+      <h1 style="font-size:6vw; padding: 30px;background-color:white;">{{answer_response_package.pof}}</h1>
       <a href="/">
         <button type="button" autofocus class="btn btn-primary" >
-          {{dwm.back}}
+          {{answer_response_package.back}}
         </button>
       </a>
     </div>
