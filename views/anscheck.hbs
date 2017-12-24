@@ -3,24 +3,29 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <style media="screen">
+
+    </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   </head>
   <body style="background-image: url('ansback.jpg');"><br><br>
     <div style='background-color:white;' class="container-fluid text-center">
-      <div class="row text-center">
         {{#if dwm.correct}}
-        <!-- <h1>Nice!!!</h1> -->
-        <h3><div class="text-center col-lg-9 col-md-9 col-sm-9" style="color:blue; display:inline-block;">{{dwm.useranswer}}</div> definitely equals {{dwm.chosenword}}</h3>
-
+        <h1 style='background-color:white;'>Nice!!!</h1>
+          <h3 style='background-color:white;'>{{dwm.useranswer}}
+            definitely equals {{dwm.chosenword}}</h3>
         {{else}}
-        <h3 class="col-lg-9 col-md-9 col-sm-9" >Oops! Your answer of <div style="color:red; display:inline-block;">{{dwm.useranswer}}</div> isn't quite {{dwm.chosenword}}</h3>
+        <h3 style='background-color:white;'>Oops! Your answer of
+           <div style="color:red; display:inline-block;">{{dwm.useranswer}}</div>
+           isn't quite {{dwm.chosenword}}</h3>
         {{/if}}
-        <h4 class="col-lg-8 col-md-8 col-sm-8" >Looks like it took {{dwm.keys_hit}} strokes to type that.</h4>
-        <img class="col-lg-8 col-md-8 col-sm-8" width="200vh" src="{{dwm.picture}}.gif" alt="">
-      </div>
-      <h1  style="font-size:6vw; padding: 30px;">{{dwm.pof}}</h1>
+        <h4 style='background-color:white;'>Looks like it took {{dwm.keys_hit}}
+          strokes to type that.</h4>
+
+      <img width="200vh" src="{{dwm.picture}}.gif" alt="">
+      <h1 style="font-size:6vw; padding: 30px;background-color:white;">{{dwm.pof}}</h1>
       <a href="/">
-        <button type="button" autofocus class="btn btn-outline-primary" >
+        <button type="button" autofocus class="btn btn-primary" >
           {{dwm.back}}
         </button>
       </a>
