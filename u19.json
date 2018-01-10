@@ -1,0 +1,21 @@
+{
+  "words" : [
+    {"English" : "to learn", "Korean" : "배우다"},
+    {"English" : "to cry", "Korean" : "울다"},
+    {"English" : "to fight", "Korean" : "싸우다"},
+    {"English" : "to give", "Korean" : "주다"},
+    {"English" : "to smoke", "Korean" : "피우다"},
+    {"English" : "lunch", "Korean" : "점심"},
+    {"English" : "a gift", "Korean" : "선물"},
+    {"English" : "to be spicy", "Korean" : "맵다"},
+    {"English" : "to die", "Korean" : "죽다"},
+    {"English" : "snow", "Korean" : "눈"},
+    {"English" : "to be young", "Korean" : "어리다"},
+    {"English" : "to laugh", "Korean" : "웃다"},
+    {"English" : "to dance", "Korean" : "춤 즐다"},
+    {"English" : "How is... How about...", "Korean" : "어때요?"},
+    {"English" : "to know", "Korean" : "알다"},
+    {"English" : "to ski", "Korean" : "스키 타다"},
+    {"English" : "to meet", "Korean" : "만나다"}
+  ]
+}
