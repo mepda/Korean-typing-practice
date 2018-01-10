@@ -27,7 +27,7 @@
             <input autofocus
             class="rounded col-md-8 col-sm-8 col-lg-8 mx-auto form-control
             form-control-large" type="text" id="answer" name="ans" value=""
-            placeholder="Type the Korean word(s)">
+            onkeydown="enterHit()" placeholder="Type the Korean word(s)">
             <button class="btn btn-primary col-md-8 col-sm-8 col-lg-8 mx-auto"
             onclick="passbackword()">OK</button>
           </div>
@@ -39,7 +39,14 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
     let keystrokes = 0;
-
+      function enterHit()
+      {
+        let charCode = event.keyCode
+        if (charCode == 13)
+        {
+          passbackword()
+        }
+      }
       function typingCounter()
       {
         let charCode = event.keyCode
