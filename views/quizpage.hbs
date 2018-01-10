@@ -21,7 +21,7 @@
         <h3 class=" col-md-8 col-sm-8 col-lg-8 mx-auto"
         style="font-size: 7vw;color:white">{{word.English}}</h3>
       </div>
-      <div style="margin:50px;" class="form-group mt-0" id="ans-form">
+      <!-- <div style="margin:50px;" class="form-group mt-0" id="ans-form">
         <div class="row">
           <div class="rounded col-md-8 col-sm-8 col-lg-8 mx-auto">
             <input autofocus
@@ -32,8 +32,24 @@
             onclick="passbackword()">OK</button>
           </div>
         </div>
+      </div> -->
+      <div class="input-group mb-3 mt-3 w-50 mx-auto">
+        <input autofocus type="text" class="form-control" type="text" id="answer" name="ans" value=""
+        onkeydown="enterHit()" placeholder="Type the Korean word(s)">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" onclick="passbackword()" type="button">Ok</button>
+        </div>
       </div>
     </div>
+
+    <!-- <div class="input-group mb-3">
+      <input type="text" class="form-control" type="text" id="answer" name="ans" value=""
+      onkeydown="enterHit()" placeholder="Type the Korean word(s)">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" onclick="passbackword()" type="button">Button</button>
+      </div>
+    </div> -->
+
 <!-- onkeydown="typingCounter()" -->
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
