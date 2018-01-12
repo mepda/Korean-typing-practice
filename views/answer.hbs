@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    body{
+
+    }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  </head>
+  <body onload="populate_name_and_score()" style="background-image: url('stars.jpg');background-size:100vw 100vh; background-repeat: no-repeat;"><br><br>
+    <div class="container-fluid text-center">
+        {{#if answer_response_package.correct}}
+          <div style="color:white; display:inline-block; font-size:12vw; opacity: 80%;"> {{answer_response_package.useranswer}}
+            is correct</div>
+        {{else}}
+         <div style="color:white; display:inline-block; font-size:12vw;opacity: 80%;">" {{answer_response_package.useranswer}} "
+         is not {{answer_response_package.chosenword}}</div>
+        {{/if}}
+
+        <!-- <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-secondary">Left</button>
+          <button type="button" class="btn btn-secondary">Middle</button>
+          <button type="button" class="btn btn-secondary">Right</button>
+        </div> -->
+
+        <div class="row">
+          <div class="col">
+            <div class="btn-group" role="group" id="ans-form">
+            {{#if answer_response_package.correct}}
+            <a href="/game">
+              <button type="button" autofocus class="btn btn-outline-info"
+              onclick="increase_score()">
+                {{answer_response_package.back}}
+              </button>
+            </a>
+            {{else}}
+            <a href="/game">
+              <button type="button" autofocus class="btn btn-outline-info">
+                {{answer_response_package.back}}
+              </button>
+            </a>
+            {{/if}}
+          </div>
+        </div>
+          {{#if answer_response_package.correct}}
+            <button class="btn btn-outline-success" onclick="location.href='/', check_highscore({{highscore}}), increase_score()">Home</button>
+          {{else}}
+            <button class="btn btn-outline-success" onclick="location.href='/', check_highscore({{highscore}})">Home</button>
+          {{/if}}
+        </div>
+
+    <script src="clientjs.js" type="text/javascript"></script>
+  </body>
+</html>

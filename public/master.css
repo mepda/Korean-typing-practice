@@ -1,0 +1,41 @@
+body {
+    background-image: url("peak.jpg");
+    background-size:cover;
+    background-repeat:no-repeat;
+    height:100vh;
+    background-position:center;
+    display: block;
+    align-items:center;
+}
+
+#welcome_friend{
+  color:white;
+  font-size: 6vw;
+}
+
+#stats{
+  color:white;
+  font-size: 4vw;
+}
+
+.box{
+  border: 3px solid white;
+  height: 25vw;
+  width: 70%;
+  margin: 0 auto;
+}
+
+
+#leader{
+  color:white;
+  font-size: 7vw;
+}
+
+#leader_score{
+  color:white;
+  font-size: 5vw;
+}
+
+.topper{
+  margin-top: 105px;
+}
