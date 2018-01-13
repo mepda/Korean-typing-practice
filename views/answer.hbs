@@ -38,9 +38,9 @@
               </a>
               {{/if}}
               {{#if answer_response_package.correct}}
-                <button class="btn btn-outline-success" onclick="location.href='/',  increase_score(), check_highscore({{highscore}})">Home</button>
+                <button class="btn btn-outline-success" onclick="increase_score(), check_highscore({{highscore}}), location.href='/'">Home</button>
                 {{else}}
-                <button class="btn btn-outline-success" onclick="location.href='/', check_highscore({{highscore}})">Home</button>
+                <button class="btn btn-outline-success" onclick="check_highscore({{highscore}}), location.href='/'">Home</button>
                 {{/if}}
               </div>
             </div>
