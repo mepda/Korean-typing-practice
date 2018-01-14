@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="master.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   </head>
-  <body onload="name_exists(), check_highscore()">
+  <body onload="name_exists(), populate_name_and_score(), check_highscore({{highscore}})">
     <div class="row" id="name_setter" style="display:none;">
       <div class="col">
         <h3 style="color:white; font-size: 13vw;" class="text-center mt-30">Welcome</h3>
